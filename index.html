@@ -41,7 +41,9 @@ nav{position:sticky;top:0;z-index:10;background:var(--navbg);backdrop-filter:sat
 nav.sc{border-color:var(--line)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:28px;height:64px}
 .logo{font-weight:700;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
-.logo .tagline{font-weight:400;color:var(--faint);font-size:.85rem;margin-left:-2px}
+.logo .tagline{font-weight:400;color:var(--faint);font-size:.85rem;margin-left:-2px;display:inline-block;animation:tagIn 1s .5s cubic-bezier(.22,1,.36,1) both}
+@keyframes tagIn{from{opacity:0;transform:translateX(-14px);clip-path:inset(0 100% 0 0)}to{opacity:1;transform:none;clip-path:inset(0 0 0 0)}}
+@media(prefers-reduced-motion:reduce){.logo .tagline{animation:none}}
 .logo{white-space:nowrap}
 nav ul a{white-space:nowrap}
 @media(max-width:1260px){.logo .tagline{display:none}}
