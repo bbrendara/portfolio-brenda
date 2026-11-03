@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brenda Campos | Dados, Sistemas & IA</title>
+<meta name="description" content="Portfólio de Brenda Campos: Analista de Dados e Sistemas, com foco em IA, agentes, automações e integrações.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+<style>
+:root{
+  --bg:#fbfbfa; --surface:#ffffff; --soft:#f4f4f2; --line:#e8e8e4;
+  --txt:#16161a; --mut:#5f5f67; --faint:#737379;
+  --acc:#5b4ff0; --acc-soft:#efedfe;
+  --body:#45454c; --body2:#3d3d44; --hover:#cfcfc9; --navbg:rgba(251,251,250,.8);
+  --on-txt:#ffffff; --pri-hover:#2b2b31; --now-bg:#dcfce7; --now-fg:#15803d;
+  --contact:#16161a; --contact-mut:#a9a9b2;
+  color-scheme:light;
+}
+[data-theme="dark"]{
+  --bg:#0e0e11; --surface:#16161b; --soft:#1f1f26; --line:#2a2a32;
+  --txt:#ededf0; --mut:#a8a8b2; --faint:#8a8a94;
+  --acc:#8b80ff; --acc-soft:#25223f;
+  --body:#c4c4cc; --body2:#d0d0d6; --hover:#3a3a44; --navbg:rgba(14,14,17,.8);
+  --on-txt:#0e0e11; --pri-hover:#d4d4da; --now-bg:#14301f; --now-fg:#4ade80;
+  --contact:#1a1a21; --contact-mut:#9a9aa4;
+  color-scheme:dark;
+  --r:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{transition:background .25s,color .25s;font-family:"Plus Jakarta Sans",system-ui,sans-serif;background:var(--bg);color:var(--txt);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px}
+.ic{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.mono{font-family:"JetBrains Mono",monospace}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:var(--navbg);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid transparent;transition:border-color .2s}
+nav.sc{border-color:var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:28px;height:64px}
+.logo{font-weight:700;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
+.logo .tagline{font-weight:400;color:var(--faint);font-size:.85rem;margin-left:-2px}
+.logo{white-space:nowrap}
+nav ul a{white-space:nowrap}
+@media(max-width:1260px){.logo .tagline{display:none}}
+.logo i{width:28px;height:28px;border-radius:9px;background:var(--txt);color:var(--on-txt);display:grid;place-items:center;font-style:normal;font-size:.8rem}
+nav ul{display:flex;gap:4px;list-style:none}
+nav ul a{color:var(--mut);font-size:.88rem;font-weight:500;padding:7px 12px;border-radius:99px;transition:.15s}
+nav ul a:hover{color:var(--txt);background:var(--soft)}
+.ctrls{display:flex;align-items:center;gap:6px;margin-left:10px}
+.langs{display:flex;border:1px solid var(--line);border-radius:99px;padding:2px;background:var(--surface)}
+.langs button{border:0;background:transparent;color:var(--mut);font:inherit;font-size:.74rem;font-weight:600;padding:7px 10px;min-height:32px;border-radius:99px;cursor:pointer;letter-spacing:.03em}
+.langs button[aria-pressed="true"]{background:var(--soft);color:var(--txt)}
+.tbtn{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--mut);display:grid;place-items:center;cursor:pointer}
+.tbtn:hover{color:var(--txt)}
+.tbtn .ic{width:16px;height:16px}
+.tbtn .sun{display:none}
+[data-theme="dark"] .tbtn .sun{display:block}
+[data-theme="dark"] .tbtn .moon{display:none}
+.navr{display:flex;align-items:center}
+.sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip{position:absolute;left:16px;top:-60px;z-index:100;background:var(--txt);color:var(--on-txt);padding:10px 16px;border-radius:10px;font-weight:600;transition:top .15s}
+.skip:focus{top:12px}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:8px}
+summary:focus-visible{outline-offset:-2px}
+.mbtn{display:none}
+.nar{position:fixed;left:18px;bottom:18px;z-index:40;display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--txt);font:inherit;font-size:.86rem;font-weight:600;cursor:pointer;box-shadow:0 6px 24px rgba(0,0,0,.08)}
+.nar:hover{border-color:var(--hover)}
+.nar[aria-pressed="true"]{background:var(--acc);color:#fff;border-color:var(--acc)}
+.nar .ic{width:17px;height:17px}
+.nar[hidden]{display:none}
+.sh h2,.ah,.contact h2{display:inline-block;vertical-align:middle}
+.contact .lsn{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff}
+.lsn{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--mut);cursor:pointer;vertical-align:middle;margin-left:12px;transition:.15s}
+.lsn:hover{color:var(--acc);border-color:var(--hover)}
+.lsn .ic{width:16px;height:16px}
+.lsn.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.lsn[hidden]{display:none}
+@media(max-width:920px){
+  nav ul{display:none}
+  .mbtn{display:grid}
+  nav ul.open{display:flex;flex-direction:column;position:absolute;top:60px;right:16px;left:16px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:8px;box-shadow:0 12px 40px rgba(0,0,0,.12)}
+  nav ul.open a{display:block;padding:12px 14px;font-size:1rem}
+}
+
+/* hero */
+.hero{padding:96px 0 80px}
+.avail{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:500;color:var(--mut);background:var(--surface);border:1px solid var(--line);padding:6px 14px 6px 10px;border-radius:99px;margin-bottom:28px}
+.avail i{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px #dcfce7}
+.hero h1{font-size:clamp(2.4rem,6.4vw,4.2rem);font-weight:700;letter-spacing:-.045em;line-height:1.04;margin-bottom:22px}
+.hero h1 span{color:var(--faint)}
+.lead{font-size:1.15rem;color:var(--mut);max-width:600px;margin-bottom:34px}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:12px;font-weight:600;font-size:.92rem;border:1px solid var(--line);background:var(--surface);transition:.18s}
+.btn:hover{border-color:var(--hover);transform:translateY(-1px)}
+.btn.pri{background:var(--txt);color:var(--on-txt);border-color:var(--txt)}
+.btn.pri:hover{background:var(--pri-hover)}
+.meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:38px;color:var(--mut);font-size:.9rem}
+.meta span{display:flex;align-items:center;gap:7px}
+
+/* sections */
+section{padding:80px 0}
+.sh{margin-bottom:36px}
+.eyebrow{font-size:.78rem;font-weight:600;color:var(--acc);text-transform:uppercase;letter-spacing:.12em}
+.sh h2{font-size:clamp(1.7rem,3.5vw,2.3rem);letter-spacing:-.035em;margin-top:8px;font-weight:700}
+.sh p{color:var(--mut);margin-top:10px;max-width:620px}
+
+.about{display:grid;grid-template-columns:340px 1fr;gap:48px;align-items:start}
+.about p{color:var(--body2);font-size:1.02rem;margin-bottom:14px}
+.ah{font-size:clamp(1.7rem,3.5vw,2.3rem);letter-spacing:-.035em;margin:8px 0 18px}
+.photo{background:#000;border-radius:24px;overflow:hidden;aspect-ratio:432/577;position:sticky;top:90px}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:820px){.about{grid-template-columns:1fr;gap:28px}.photo{position:static;max-width:320px}}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:36px}
+@media(max-width:560px){.stats{grid-template-columns:1fr}}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.stat b{font-size:1.9rem;letter-spacing:-.04em;display:block;line-height:1.1}
+.stat span{color:var(--mut);font-size:.85rem}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-top:12px}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px}
+.skill h3{font-size:.95rem;font-weight:600;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:.78rem;font-weight:500;padding:4px 11px;border-radius:99px;background:var(--soft);color:var(--body)}
+.chip.acc{background:var(--acc-soft);color:var(--acc)}
+
+/* card */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:30px;margin-bottom:16px}
+.card-top{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:flex-start}
+.card h3{font-size:1.3rem;letter-spacing:-.025em;font-weight:700}
+.when{font-size:.8rem;color:var(--faint);white-space:nowrap;font-weight:500;padding-top:5px}
+.sum{color:var(--mut);margin:10px 0 16px;max-width:720px}
+.badge{font-style:normal;display:inline-block;font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:99px;margin-left:10px;vertical-align:middle;background:var(--acc-soft);color:var(--acc);letter-spacing:.01em}
+.badge.now{background:var(--now-bg);color:var(--now-fg)}
+
+/* experiência */
+.company{display:flex;align-items:center;gap:16px;margin-bottom:6px}
+.clogo{width:92px;height:64px;border-radius:14px;border:1px solid var(--line);background:#fff;display:grid;place-items:center;padding:8px;flex-shrink:0}
+.clogo img{max-width:100%;max-height:100%;object-fit:contain}
+.company small{display:flex;align-items:center;gap:5px;color:var(--mut);font-size:.85rem}
+.tl2{position:relative;margin-top:22px}
+.tl2::before{content:"";position:absolute;left:171px;top:10px;bottom:10px;width:1px;background:var(--line)}
+.trole{position:relative}
+.trole > summary,.trole > .thead{display:grid;grid-template-columns:160px 24px 1fr 20px;align-items:start;gap:0;padding:10px 0;cursor:pointer;list-style:none;border-radius:12px}
+.trole > summary::-webkit-details-marker{display:none}
+.trole > .thead{cursor:default}
+.tdate{font-size:.82rem;color:var(--mut);font-weight:500;text-align:right;padding-right:14px;line-height:1.4}
+.tdate small{display:block;color:var(--faint);font-size:.75rem;font-weight:400}
+.tdot{width:11px;height:11px;border-radius:50%;background:var(--surface);border:2px solid var(--hover);margin:4px 0 0 6px;position:relative;z-index:1}
+.trole.now .tdot{border-color:var(--acc);background:var(--acc)}
+.tbody h4{font-size:1rem;font-weight:600;line-height:1.35}
+.tcount{font-size:.8rem;color:var(--acc);font-weight:500}
+.tcount .c,.trole[open] .tcount .o{display:none}
+.trole[open] .tcount .c{display:inline}
+.trole > summary:hover .tbody h4{color:var(--acc)}
+.trole > summary .chev{width:16px;height:16px;color:var(--faint);margin-top:4px;transition:transform .2s}
+.trole[open] > summary .chev{transform:rotate(90deg);color:var(--acc)}
+.titems{margin:0 0 12px 184px}
+.titems ul.bul,.tbody ul.bul{margin:6px 0 0;list-style:none;color:var(--body);font-size:.94rem}
+ul.bul li{padding-left:16px;position:relative;margin-bottom:3px}
+ul.bul li::before{content:"";position:absolute;left:2px;top:.72em;width:5px;height:1px;background:var(--faint)}
+@media(max-width:700px){
+  .tl2::before{left:10px}
+  .trole > summary,.trole > .thead{grid-template-columns:24px 1fr 20px}
+  .tdate{grid-column:2;grid-row:2;text-align:left;padding:2px 0 0}
+  .tdot{grid-column:1;grid-row:1;margin-left:5px}
+  .tbody{grid-column:2;grid-row:1}
+  .trole > summary .chev{grid-column:3;grid-row:1}
+  .titems{margin-left:24px}
+  .company{flex-direction:column;align-items:flex-start;gap:12px}
+  .company small{flex-wrap:wrap}
+  .card{padding:22px}
+}
+/* prévia + ações do projeto */
+.pact{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.pbtn{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:10px;border:1px solid var(--line);background:var(--surface);font:inherit;font-size:.86rem;font-weight:600;color:var(--txt);cursor:pointer;transition:.15s}
+.pbtn:hover{border-color:var(--hover);background:var(--soft)}
+.pbtn .ic{width:16px;height:16px}
+.pbtn .chev{transition:transform .2s}
+.pbtn[aria-expanded="true"] .chev{transform:rotate(90deg)}
+.pmore{margin-top:12px}
+.pmore[hidden]{display:none}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(14,14,18,.92);display:flex;align-items:center;justify-content:center;padding:60px 70px;backdrop-filter:blur(4px)}
+.lb[hidden]{display:none}
+.lb figure{max-width:1400px;width:100%;text-align:center}
+.lb img{max-width:100%;max-height:78vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.4);background:#fff}
+.lb figcaption{color:#c9c9d1;font-size:.88rem;margin-top:14px}
+.lb button{position:absolute;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);color:#fff;display:grid;place-items:center;cursor:pointer}
+.lb button:hover{background:rgba(255,255,255,.14)}
+.lbx{top:18px;right:18px}.lbp{left:16px;top:50%;margin-top:-22px}.lbn{right:16px;top:50%;margin-top:-22px}
+@media(max-width:700px){.lb{padding:60px 12px}.lbp,.lbn{top:auto;bottom:18px;margin:0}.lbp{left:calc(50% - 54px)}.lbn{right:calc(50% - 54px)}}
+
+/* details aninhados */
+details.dd{border:1px solid var(--line);border-radius:14px;margin-top:8px;background:var(--surface);transition:background .2s}
+details.dd[open]{background:var(--bg)}
+details.dd > summary{cursor:pointer;list-style:none;padding:13px 16px;font-weight:600;font-size:.9rem;display:flex;align-items:center;gap:10px;user-select:none}
+details.dd > summary::-webkit-details-marker{display:none}
+details.dd > summary .chev{transition:transform .2s;color:var(--faint);width:16px;height:16px}
+details.dd[open] > summary .chev{transform:rotate(90deg);color:var(--acc)}
+details.dd > summary small{color:var(--faint);font-weight:500;margin-left:auto;font-size:.78rem}
+details.dd .in{padding:0 16px 16px 42px;color:var(--body);font-size:.92rem}
+details.dd .in > p{margin-bottom:6px}
+details.dd .in > ul{margin:2px 0 8px 16px}
+details.dd .in > ul li{margin-bottom:3px}
+details.dd details.dd{background:var(--surface)}
+details.dd details.dd .in{padding-left:42px}
+
+/* arquitetura */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;margin:8px 0 4px}
+.node{flex:1 1 140px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;min-width:130px}
+.node b{display:block;font-size:.82rem;font-weight:600;color:var(--txt);margin-bottom:2px}
+.node span{font-size:.8rem;color:var(--mut);line-height:1.45;display:block}
+.arrow{display:flex;align-items:center;justify-content:center;color:var(--faint);padding:0 6px}
+@media(max-width:700px){.flow{flex-direction:column}.arrow{transform:rotate(90deg);padding:4px 0}}
+.ctx .row{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:10px 0;border-top:1px solid var(--line)}
+.ctx .row:first-child{border-top:0;padding-top:2px}
+.ctx .row b{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);font-weight:600;padding-top:3px}
+.ctx .row ul{margin:0 0 0 16px}
+.ctx .row li{margin-bottom:2px}
+details.dd .in.ctx{padding-left:42px}
+@media(max-width:640px){.ctx .row{grid-template-columns:1fr;gap:4px}}
+pre.tree{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;overflow:auto;font-family:"JetBrains Mono",monospace;font-size:.78rem;color:var(--body);line-height:1.6}
+
+.links{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px;font-size:.9rem;font-weight:600}
+.links a{display:inline-flex;align-items:center;gap:6px}
+.links a:hover{color:var(--acc)}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
+.grid2 .card{margin:0;padding:24px}
+.grid2 h3{font-size:1.02rem;letter-spacing:-.015em}
+.org{color:var(--mut);font-size:.88rem;margin-top:2px}
+.lab{border-style:dashed;background:transparent}
+.subh{font-size:1.15rem;letter-spacing:-.02em;margin:40px 0 14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.grid3 .card{margin:0;padding:22px}
+.grid3 h3{font-size:1.02rem}
+
+/* contato */
+.contact{background:var(--contact);color:#fff;border:1px solid var(--line);border-radius:28px;padding:56px 40px;text-align:center;margin:20px 0 60px}
+.contact h2{font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:-.04em}
+.contact p{color:var(--contact-mut);margin:10px auto 30px;max-width:460px}
+.cgrid{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.cgrid a{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);font-size:.92rem;font-weight:500;transition:.18s}
+.cgrid a:hover{background:rgba(255,255,255,.14)}
+footer{text-align:center;color:var(--faint);font-size:.82rem;padding:0 0 40px}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<!-- ícones (traço fino, estilo Lucide) -->
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></symbol>
+  <symbol id="i-gh" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.1-1.3-.3-2.5-1-3.5.3-1.2.3-2.4 0-3.5 0 0-1 0-3 1.5a10.4 10.4 0 0 0-6 0C7 2 6 2 6 2c-.3 1.1-.3 2.3 0 3.5A5.4 5.4 0 0 0 5 9c0 3.5 3 5.5 6 5.5-.4.5-.7 1-.8 1.7-.2.6-.3 1.2-.2 1.8v4"/><path d="M9 18c-4.5 2-5-2-7-2"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 6-6 6 6 6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-audio" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></symbol>
+  <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></symbol>
+</svg>
+
+<a class="skip" href="#main" data-i="pular"></a>
+<nav id="nav" aria-label="Principal"><div class="wrap">
+  <a class="logo" href="#top"><i>BC</i>Brenda Campos<span class="tagline">| Systems, Data &amp; AI</span></a>
+  <div class="navr"><ul id="navlist">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#experiencia">Experiência</a></li>
+    <li><a href="#projetos">Projetos</a></li>
+    <li><a href="#lab">Lab</a></li>
+    <li><a href="#formacao">Formação</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <div class="ctrls">
+    <div class="langs" role="group" aria-label="Idioma"><button data-lang="pt" lang="pt-BR" aria-label="Português" aria-pressed="true">PT</button><button data-lang="en" lang="en" aria-label="English" aria-pressed="false">EN</button><button data-lang="es" lang="es" aria-label="Español" aria-pressed="false">ES</button></div>
+    <button class="tbtn mbtn" id="menuBtn" aria-expanded="false" aria-controls="navlist"><svg class="ic"><use href="#i-menu"/></svg></button>
+    <button class="tbtn" id="themeBtn" aria-label="Alternar tema"><svg class="ic moon"><use href="#i-moon"/></svg><svg class="ic sun"><use href="#i-sun"/></svg></button>
+  </div>
+  </div>
+</div></nav>
+
+<main id="main" tabindex="-1">
+<header class="hero" id="top"><div class="wrap">
+  <h1 data-i="h1"></h1>
+  <p class="lead" data-i="lead"></p>
+  <div class="btns">
+    <a class="btn pri" href="#projetos"><span data-i="verProjetos"></span> <svg class="ic"><use href="#i-right"/></svg></a>
+    <a class="btn" href="#contato" data-i="contatoBtn"></a>
+  </div>
+  <div class="meta">
+    <span><svg class="ic"><use href="#i-pin"/></svg>Salvador, BA</span>
+    <a href="https://github.com/bbrendara" target="_blank" rel="noopener"><span><svg class="ic"><use href="#i-gh"/></svg>bbrendara</span></a>
+    <a href="https://linkedin.com/in/brendacampos-ssa" target="_blank" rel="noopener"><span><svg class="ic"><use href="#i-in"/></svg>brendacampos-ssa</span></a>
+  </div>
+</div></header>
+
+<section id="sobre"><div class="wrap">
+  <div class="about reveal">
+    <div class="photo"><img id="foto" src="foto-brenda.jpg" alt="Foto de Brenda Campos"></div>
+    <div>
+      <div class="eyebrow" data-i="sobreEy"></div>
+      <h2 class="ah" data-i="sobreH"></h2>
+      <div data-i="sobre"></div>
+    </div>
+  </div>
+  <div class="stats reveal" id="stats"></div>
+  <div class="skills reveal" id="skills"></div>
+</div></section>
+
+<section id="experiencia"><div class="wrap">
+  <div class="sh reveal"><div class="eyebrow" data-i="expEy"></div><h2 data-i="expH"></h2>
+    <p data-i="expP"></p></div>
+  <div id="exp"></div>
+</div></section>
+
+<section id="projetos"><div class="wrap">
+  <div class="sh reveal"><div class="eyebrow" data-i="projEy"></div><h2 data-i="projH"></h2>
+    <p data-i="projP"></p></div>
+  <div id="proj"></div>
+</div></section>
+
+<section id="lab"><div class="wrap">
+  <div class="sh reveal"><div class="eyebrow" data-i="labEy"></div><h2 data-i="labH"></h2>
+    <p data-i="labP"></p></div>
+  <div class="grid2" id="labs"></div>
+</div></section>
+
+<section id="formacao"><div class="wrap">
+  <div class="sh reveal"><div class="eyebrow" data-i="eduEy"></div><h2 data-i="eduH"></h2></div>
+  <div class="grid2" id="edu"></div>
+  <h3 class="subh reveal" data-i="idH"></h3>
+  <div class="grid3" id="langs"></div>
+</div></section>
+
+<section id="voluntariado"><div class="wrap">
+  <div class="sh reveal"><div class="eyebrow" data-i="volEy"></div><h2 data-i="volH"></h2></div>
+  <div class="grid2" id="vol"></div>
+</div></section>
+
+<div class="wrap" id="contato">
+  <div class="contact reveal">
+    <h2 data-i="ctH"></h2>
+    <p data-i="ctP"></p>
+    <div class="cgrid" id="contacts"></div>
+  </div>
+</div>
+</main>
+<button class="nar" id="narBtn" aria-pressed="false" hidden><svg class="ic"><use href="#i-audio"/></svg><span></span></button>
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Prévia do projeto">
+  <button class="lbx" id="lbx" aria-label="Fechar"><svg class="ic"><use href="#i-x"/></svg></button>
+  <button class="lbp" id="lbp" aria-label="Anterior"><svg class="ic"><use href="#i-left"/></svg></button>
+  <figure><img id="lbimg" alt=""><figcaption id="lbcap"></figcaption></figure>
+  <button class="lbn" id="lbn" aria-label="Próxima"><svg class="ic"><use href="#i-chev"/></svg></button>
+</div>
+<footer>© <span id="y"></span> Brenda Campos <span style="opacity:.7">| Systems, Data &amp; AI</span></footer>
+
+<script>
+/* ==========================================================
+   ✏️  EDITE AQUI: todo o conteúdo do site fica neste objeto.
+   Pra adicionar algo, copie um bloco existente e altere.
+
+   IDIOMAS: textos traduzidos usam { pt: "...", en: "...", es: "..." }.
+   Texto simples (sem as três chaves) vale para todos os idiomas.
+   Se faltar uma tradução, o site mostra o português.
+
+   Nos projetos, "detalhes" é uma lista de seções expansíveis:
+     texto: "parágrafo" | lista: ["a","b"] | fluxo: [{t,d}] (arquitetura)
+     codigo: "árvore" | detalhes: [...] (sub-seções)
+   "previas": imagens do botão Prévia (arquivos na pasta img).
+
+   EXPERIÊNCIAS: inicio/fim em "AAAA-MM". fim: null = cargo atual.
+   Cada item em "itens" mostra Contexto, O que implementei e Resultado.
+   ========================================================== */
+const DATA = {
+  stats: [
+    { n: "3+", t: { pt: "anos em TI", en: "years in IT", es: "años en TI" } },
+    { n: "4", t: { pt: "cargos na mesma empresa", en: "roles at the same company", es: "cargos en la misma empresa" } },
+    { n: "PUC", t: { pt: "Pós em Ciência de Dados", en: "Postgrad in Data Science", es: "Posgrado en Ciencia de Datos" } }
+  ],
+
+  skills: [
+    { area: { pt: "Dados & BI", en: "Data & BI", es: "Datos & BI" }, itens: ["SQL", "PL/SQL", "Dashboards", "KPIs", "Weknow BI"] },
+    { area: { pt: "Desenvolvimento", en: "Development", es: "Desarrollo" }, itens: ["TypeScript", "JavaScript", "Python", "Next.js", "HTML/CSS", "APIs REST"] },
+    { area: { pt: "IA & Agentes", en: "AI & Agents", es: "IA & Agentes" }, itens: ["LLMs", "Gemini", "Agno", { pt: "Engenharia de prompt", en: "Prompt engineering", es: "Ingeniería de prompts" }, "RAG", "MCP", "n8n"], cls: "acc" },
+    { area: { pt: "Processos & Negócio", en: "Processes & Business", es: "Procesos & Negocio" }, itens: ["BPMN", "Sydle (low-code)", { pt: "Requisitos", en: "Requirements", es: "Requisitos" }, "Stakeholders"] },
+    { area: { pt: "Ferramentas", en: "Tools", es: "Herramientas" }, itens: ["Git", "Supabase", "Vercel", "Streamlit", "Figma", "VS Code"] }
+  ],
+
+  experiencias: [
+    {
+      org: "Liga Álvaro Bahia Contra a Mortalidade Infantil",
+      logo: "logo-liga.png",
+      local: "Salvador/BA",
+      funcoes: [
+        {
+          cargo: { pt: "Analista de Dados Pleno", en: "Mid-level Data Analyst", es: "Analista de Datos Semi Senior" }, inicio: "2026-05", fim: null,
+          itens: [
+            {
+              titulo: { pt: "Integração entre sistemas via APIs REST", en: "System integration via REST APIs", es: "Integración entre sistemas vía APIs REST" },
+              contexto: { pt: "Sistemas corporativos que não conversavam entre si, o que obrigava as equipes a repassar informações manualmente.", en: "Corporate systems that didn't talk to each other, forcing teams to pass information along manually.", es: "Sistemas corporativos que no se comunicaban entre sí, lo que obligaba a los equipos a traspasar información manualmente." },
+              implementei: { pt: ["Desenvolvimento e consumo de APIs REST", "Automações em JavaScript com as regras de negócio de cada integração"], en: ["Building and consuming REST APIs", "JavaScript automations with the business rules of each integration"], es: ["Desarrollo y consumo de APIs REST", "Automatizaciones en JavaScript con las reglas de negocio de cada integración"] },
+              resultado: { pt: "Dados passando de um sistema para outro automaticamente, com menos retrabalho e menos erro de digitação.", en: "Data flowing between systems automatically, with less rework and fewer typing errors.", es: "Datos que pasan de un sistema a otro automáticamente, con menos retrabajo y menos errores de digitación." }
+            },
+            {
+              titulo: { pt: "Componentes web para visualização de dados", en: "Web components for data visualization", es: "Componentes web para visualización de datos" },
+              contexto: { pt: "As áreas precisavam consultar e interagir com dados dentro dos sistemas que já usavam no dia a dia.", en: "Teams needed to view and interact with data inside the systems they already used every day.", es: "Las áreas necesitaban consultar e interactuar con datos dentro de los sistemas que ya usaban a diario." },
+              implementei: { pt: "Componentes personalizados em TypeScript, HTML e CSS.", en: "Custom components in TypeScript, HTML and CSS.", es: "Componentes personalizados en TypeScript, HTML y CSS." },
+              resultado: { pt: "Informação disponível no próprio fluxo de trabalho, sem depender de planilhas paralelas.", en: "Information available right in the workflow, without side spreadsheets.", es: "Información disponible en el propio flujo de trabajo, sin depender de hojas de cálculo paralelas." }
+            },
+            {
+              titulo: { pt: "Dashboards e análise de dados", en: "Dashboards and data analysis", es: "Dashboards y análisis de datos" },
+              contexto: { pt: "Gestores precisavam acompanhar métricas operacionais para tomar decisões.", en: "Managers needed to track operational metrics to make decisions.", es: "Los gestores necesitaban seguir métricas operativas para tomar decisiones." },
+              implementei: { pt: ["Consultas SQL para extração, transformação e análise", "Dashboards analíticos e operacionais"], en: ["SQL queries for extraction, transformation and analysis", "Analytical and operational dashboards"], es: ["Consultas SQL para extracción, transformación y análisis", "Dashboards analíticos y operativos"] },
+              resultado: { pt: "Métricas acompanhadas em um só lugar, servindo de base para as decisões das áreas.", en: "Metrics tracked in one place, supporting each team's decisions.", es: "Métricas reunidas en un solo lugar, como base para las decisiones de las áreas." }
+            },
+            {
+              titulo: { pt: "Análise de dados com IA", en: "AI-powered data analysis", es: "Análisis de datos con IA" },
+              contexto: { pt: "Interesse da empresa em tirar mais valor dos dados que já existiam.", en: "The company wanted to get more value from the data it already had.", es: "Interés de la empresa en obtener más valor de los datos existentes." },
+              implementei: { pt: "Participação em iniciativas de análise inteligente de dados usando técnicas de Inteligência Artificial.", en: "Took part in intelligent data analysis initiatives using Artificial Intelligence techniques.", es: "Participación en iniciativas de análisis inteligente de datos con técnicas de Inteligencia Artificial." },
+              resultado: { pt: "Novos insights a partir de dados que antes eram pouco explorados.", en: "New insights from data that was previously underused.", es: "Nuevos insights a partir de datos que antes se exploraban poco." }
+            }
+          ]
+        },
+        {
+          cargo: { pt: "Analista de Sistemas", en: "Systems Analyst", es: "Analista de Sistemas" }, inicio: "2025-07", fim: "2026-04",
+          itens: [
+            {
+              titulo: { pt: "Automação de fluxos corporativos", en: "Corporate workflow automation", es: "Automatización de flujos corporativos" },
+              contexto: { pt: "Fluxos com muitas etapas manuais e regras aplicadas caso a caso.", en: "Workflows with many manual steps and rules applied case by case.", es: "Flujos con muchas etapas manuales y reglas aplicadas caso por caso." },
+              implementei: { pt: "Processos automatizados e regras de negócio configuradas no próprio fluxo.", en: "Automated processes with business rules built into the workflow.", es: "Procesos automatizados y reglas de negocio configuradas en el propio flujo." },
+              resultado: { pt: "Fluxos mais rápidos e padronizados.", en: "Faster, standardized workflows.", es: "Flujos más rápidos y estandarizados." }
+            },
+            {
+              titulo: { pt: "Digitalização de processos em papel", en: "Digitizing paper-based processes", es: "Digitalización de procesos en papel" },
+              contexto: { pt: "Vários processos ainda dependiam de documentos impressos e assinaturas físicas.", en: "Many processes still relied on printed documents and wet signatures.", es: "Varios procesos aún dependían de documentos impresos y firmas físicas." },
+              implementei: { pt: "Soluções digitais para substituir formulários e etapas em papel.", en: "Digital solutions to replace paper forms and steps.", es: "Soluciones digitales para reemplazar formularios y etapas en papel." },
+              resultado: { pt: "Redução de processos manuais e de impressões, contribuindo para a transformação digital da empresa.", en: "Fewer manual processes and printouts, supporting the company's digital transformation.", es: "Reducción de procesos manuales e impresiones, contribuyendo a la transformación digital de la empresa." }
+            },
+            {
+              titulo: { pt: "Dashboards de KPIs", en: "KPI dashboards", es: "Dashboards de KPIs" },
+              contexto: { pt: "Faltava uma visão consolidada dos indicadores.", en: "There was no consolidated view of the indicators.", es: "Faltaba una visión consolidada de los indicadores." },
+              implementei: { pt: "Desenvolvimento e manutenção de dashboards para monitorar KPIs.", en: "Built and maintained dashboards to monitor KPIs.", es: "Desarrollo y mantenimiento de dashboards para monitorear KPIs." },
+              resultado: { pt: "Indicadores acompanhados de forma contínua pelas áreas.", en: "Indicators continuously tracked by each team.", es: "Indicadores seguidos de forma continua por las áreas." }
+            },
+            {
+              titulo: { pt: "Interfaces web", en: "Web interfaces", es: "Interfaces web" },
+              contexto: { pt: "Usuários precisavam de telas mais simples para realizar suas tarefas.", en: "Users needed simpler screens to get their work done.", es: "Los usuarios necesitaban pantallas más simples para realizar sus tareas." },
+              implementei: { pt: "Interfaces em JavaScript e HTML.", en: "Interfaces in JavaScript and HTML.", es: "Interfaces en JavaScript y HTML." },
+              resultado: { pt: "Sistemas internos mais fáceis de usar.", en: "Easier-to-use internal systems.", es: "Sistemas internos más fáciles de usar." }
+            }
+          ]
+        },
+        {
+          cargo: { pt: "Técnica de Sistemas Nível III", en: "Systems Technician III", es: "Técnica de Sistemas Nivel III" }, inicio: "2024-07", fim: "2025-07",
+          itens: [
+            {
+              titulo: { pt: "Levantamento de requisitos e mapeamento de processos", en: "Requirements gathering and process mapping", es: "Levantamiento de requisitos y mapeo de procesos" },
+              contexto: { pt: "Processos do Financeiro, Jurídico, Contratos e Governança Corporativa pouco documentados.", en: "Poorly documented processes in Finance, Legal, Contracts and Corporate Governance.", es: "Procesos de Finanzas, Jurídico, Contratos y Gobierno Corporativo poco documentados." },
+              implementei: { pt: ["Reuniões de levantamento de requisitos com os stakeholders", "Mapeamento dos processos em BPMN"], en: ["Requirements sessions with stakeholders", "Process mapping in BPMN"], es: ["Reuniones de levantamiento de requisitos con los stakeholders", "Mapeo de procesos en BPMN"] },
+              resultado: { pt: "Processos documentados e prontos para serem automatizados.", en: "Processes documented and ready to be automated.", es: "Procesos documentados y listos para automatizarse." }
+            },
+            {
+              titulo: { pt: "Fluxos de aprovação e assinatura de documentos", en: "Document approval and signature workflows", es: "Flujos de aprobación y firma de documentos" },
+              contexto: { pt: "As aprovações precisavam respeitar as alçadas de governança e eram difíceis de rastrear.", en: "Approvals had to follow governance authority levels and were hard to track.", es: "Las aprobaciones debían respetar los niveles de autorización de gobierno y eran difíciles de rastrear." },
+              implementei: { pt: "Aplicações e processos para gerenciar aprovações e assinaturas de documentos.", en: "Applications and processes to manage document approvals and signatures.", es: "Aplicaciones y procesos para gestionar aprobaciones y firmas de documentos." },
+              resultado: { pt: "Conformidade com as alçadas de governança e histórico de cada aprovação.", en: "Compliance with governance authority levels and a history of every approval.", es: "Cumplimiento de los niveles de autorización y registro de cada aprobación." }
+            },
+            {
+              titulo: { pt: "Dashboards e relatórios no Weknow", en: "Dashboards and reports in Weknow", es: "Dashboards e informes en Weknow" },
+              contexto: { pt: "As áreas precisavam de relatórios para avaliar suas estratégias.", en: "Teams needed reports to evaluate their strategies.", es: "Las áreas necesitaban informes para evaluar sus estrategias." },
+              implementei: { pt: "Consultas SQL e dashboards na plataforma Weknow.", en: "SQL queries and dashboards on the Weknow platform.", es: "Consultas SQL y dashboards en la plataforma Weknow." },
+              resultado: { pt: "Insights entregues às áreas para otimizar estratégias.", en: "Insights delivered to teams to optimize their strategies.", es: "Insights entregados a las áreas para optimizar estrategias." }
+            }
+          ]
+        },
+        {
+          cargo: { pt: "Estagiária de TI", en: "IT Intern", es: "Pasante de TI" }, inicio: "2023-10", fim: "2024-06",
+          itens: [
+            {
+              titulo: { pt: "Automação de processos no Sydle", en: "Process automation in Sydle", es: "Automatización de procesos en Sydle" },
+              contexto: { pt: "Rotinas operacionais feitas manualmente.", en: "Operational routines done by hand.", es: "Rutinas operativas hechas manualmente." },
+              implementei: { pt: "Modelagem e automação de processos de negócio (BPM) na plataforma low-code Sydle.", en: "Business process modeling and automation (BPM) on the Sydle low-code platform.", es: "Modelado y automatización de procesos de negocio (BPM) en la plataforma low-code Sydle." },
+              resultado: { pt: "Rotinas otimizadas e efetivação como Técnica de Sistemas.", en: "Optimized routines and a full-time hire as Systems Technician.", es: "Rutinas optimizadas y contratación efectiva como Técnica de Sistemas." }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+
+  projetos: [
+    {
+      nome: { pt: "Análise de Imagens Médicas com IA", en: "AI Medical Image Analysis", es: "Análisis de Imágenes Médicas con IA" },
+      status: "",
+      ano: "2026",
+      resumo: { pt: "Aplicação que identifica o tipo de exame, gera um laudo preliminar com hipóteses e nível de confiança e busca referências médicas atualizadas para embasar o resultado.", en: "An app that identifies the exam type, generates a preliminary report with hypotheses and confidence levels, and finds up-to-date medical references to support the result.", es: "Aplicación que identifica el tipo de examen, genera un informe preliminar con hipótesis y nivel de confianza, y busca referencias médicas actualizadas para respaldar el resultado." },
+      tags: ["TypeScript", "Next.js 15", "Gemini", "Tavily", "Python", "Agno", "Streamlit"],
+      links: [{ t: { pt: "Repositório", en: "Repository", es: "Repositorio" }, u: "https://github.com/bbrendara/llm-medicina-ts" }],
+      previas: [
+        { src: "img/med-visualizacao.jpg", legenda: { pt: "Visualização do exame com zoom e contraste", en: "Exam viewer with zoom and contrast", es: "Visualización del examen con zoom y contraste" } },
+        { src: "img/med-relatorio.jpg", legenda: { pt: "Relatório de análise com hipóteses e referências médicas", en: "Analysis report with hypotheses and medical references", es: "Informe de análisis con hipótesis y referencias médicas" } }
+      ],
+      detalhes: [
+        { titulo: { pt: "Problema", en: "Problem", es: "Problema" }, texto: { pt: "Analisar imagens e escrever laudos iniciais leva tempo. A ideia é entregar ao profissional um ponto de partida organizado e com fontes. A aplicação serve de apoio e não substitui a avaliação médica.", en: "Analyzing images and writing initial reports takes time. The idea is to give professionals an organized starting point with sources. The app is a support tool and does not replace a medical assessment.", es: "Analizar imágenes y redactar informes iniciales lleva tiempo. La idea es darle al profesional un punto de partida organizado y con fuentes. La aplicación es un apoyo y no reemplaza la evaluación médica." } },
+        { titulo: { pt: "O que a aplicação faz", en: "What the app does", es: "Qué hace la aplicación" }, lista: {
+          pt: ["Identifica o tipo de exame (raio-X, tomografia, ressonância etc.), a projeção e a qualidade técnica da imagem", "Lista os achados clínicos, o diagnóstico principal e os alternativos, cada um com categoria e % de confiança", "Sinaliza achados críticos e traz um resumo em linguagem simples para o paciente", "Pesquisa literatura médica (PubMed, OMS, CFM, SBPT) e inclui os links no relatório"],
+          en: ["Identifies the exam type (X-ray, CT, MRI, etc.), the projection and the technical quality of the image", "Lists clinical findings, the main diagnosis and alternatives, each with a category and confidence %", "Flags critical findings and adds a plain-language summary for the patient", "Searches medical literature (PubMed, WHO, CFM, SBPT) and includes the links in the report"],
+          es: ["Identifica el tipo de examen (rayos X, tomografía, resonancia, etc.), la proyección y la calidad técnica de la imagen", "Enumera los hallazgos clínicos, el diagnóstico principal y los alternativos, cada uno con categoría y % de confianza", "Señala hallazgos críticos y agrega un resumen en lenguaje sencillo para el paciente", "Busca literatura médica (PubMed, OMS, CFM, SBPT) e incluye los enlaces en el informe"] } },
+        { titulo: { pt: "Arquitetura", en: "Architecture", es: "Arquitectura" }, fluxo: [
+          { t: "Upload", d: { pt: "imagem via FormData (jpg, png, webp)", en: "image via FormData (jpg, png, webp)", es: "imagen vía FormData (jpg, png, webp)" } },
+          { t: "/api/analyze", d: { pt: "imagem em base64 enviada ao Gemini com prompt estruturado, que devolve o laudo em JSON", en: "base64 image sent to Gemini with a structured prompt, which returns the report as JSON", es: "imagen en base64 enviada a Gemini con un prompt estructurado, que devuelve el informe en JSON" } },
+          { t: "/api/research", d: { pt: "laudo usado como busca no Tavily, só em domínios médicos confiáveis", en: "report used as a Tavily query, limited to trusted medical domains", es: "informe usado como búsqueda en Tavily, solo en dominios médicos confiables" } },
+          { t: { pt: "Interface", en: "Interface", es: "Interfaz" }, d: { pt: "laudo, hipóteses e referências com links", en: "report, hypotheses and linked references", es: "informe, hipótesis y referencias con enlaces" } }
+        ]},
+        { titulo: { pt: "Detalhes técnicos", en: "Technical details", es: "Detalles técnicos" }, detalhes: [
+          { titulo: { pt: "Agente 1: análise da imagem", en: "Agent 1: image analysis", es: "Agente 1: análisis de la imagen" }, lista: {
+            pt: ["Prompt de radiologista que exige apenas JSON válido, com estrutura fixa", "Regras de saída: 3 a 6 achados, 1 a 4 hipóteses em ordem de probabilidade, categoria com valores fixos e confiança de 0 a 100", "Se um modelo do Gemini estiver sobrecarregado, tenta o próximo (2.5 Pro, 2.5 Flash, Flash-Lite), com novas tentativas em erros 429 e 503"],
+            en: ["Radiologist prompt that requires valid JSON only, with a fixed structure", "Output rules: 3 to 6 findings, 1 to 4 hypotheses ordered by likelihood, fixed category values and confidence from 0 to 100", "If a Gemini model is overloaded, it falls back to the next one (2.5 Pro, 2.5 Flash, Flash-Lite), retrying on 429 and 503 errors"],
+            es: ["Prompt de radiólogo que exige solo JSON válido, con estructura fija", "Reglas de salida: de 3 a 6 hallazgos, de 1 a 4 hipótesis por orden de probabilidad, categoría con valores fijos y confianza de 0 a 100", "Si un modelo de Gemini está sobrecargado, prueba el siguiente (2.5 Pro, 2.5 Flash, Flash-Lite), con reintentos en errores 429 y 503"] } },
+          { titulo: { pt: "Agente 2: pesquisa médica", en: "Agent 2: medical research", es: "Agente 2: investigación médica" }, lista: {
+            pt: ["Busca avançada no Tavily limitada a pubmed.ncbi.nlm.nih.gov, who.int, cfm.org.br e sbpt.org.br", "Retorna 3 referências com título, link e resumo"],
+            en: ["Advanced Tavily search limited to pubmed.ncbi.nlm.nih.gov, who.int, cfm.org.br and sbpt.org.br", "Returns 3 references with title, link and summary"],
+            es: ["Búsqueda avanzada en Tavily limitada a pubmed.ncbi.nlm.nih.gov, who.int, cfm.org.br y sbpt.org.br", "Devuelve 3 referencias con título, enlace y resumen"] } },
+          { titulo: { pt: "Estrutura do projeto", en: "Project structure", es: "Estructura del proyecto" }, codigo:
+`llm-medicina-ts/
+├── app/
+│   ├── page.tsx              ← interface
+│   ├── globals.css           ← tema visual
+│   └── api/
+│       ├── analyze/route.ts  ← agente 1: Gemini
+│       └── research/route.ts ← agente 2: Tavily` }
+        ]},
+        { titulo: { pt: "Evolução: de Python para Next.js", en: "Evolution: from Python to Next.js", es: "Evolución: de Python a Next.js" }, detalhes: [
+          { titulo: { pt: "Versão em Python (estudo de caso do curso da Udemy)", en: "Python version (Udemy course case study)", es: "Versión en Python (caso de estudio del curso de Udemy)" }, lista: {
+            pt: ["Dois agentes em sequência com a biblioteca Agno: med_agent e research_agent", "Gemini para as imagens; Tavily e PubMed para a literatura", "Pré-processamento com PIL e interface em Streamlit com CSS customizado"],
+            en: ["Two sequential agents with the Agno library: med_agent and research_agent", "Gemini for images; Tavily and PubMed for literature", "Preprocessing with PIL and a Streamlit interface with custom CSS"],
+            es: ["Dos agentes en secuencia con la biblioteca Agno: med_agent y research_agent", "Gemini para las imágenes; Tavily y PubMed para la literatura", "Preprocesamiento con PIL e interfaz en Streamlit con CSS personalizado"] } },
+          { titulo: { pt: "Versão em TypeScript + Next.js", en: "TypeScript + Next.js version", es: "Versión en TypeScript + Next.js" }, lista: {
+            pt: ["API Routes no lugar do backend em Python, usando o SDK oficial do Gemini", "Saída em JSON, o que deu controle total sobre a interface", "Preparado para deploy na Vercel"],
+            en: ["API Routes instead of the Python backend, using the official Gemini SDK", "JSON output, giving full control over the interface", "Ready to deploy on Vercel"],
+            es: ["API Routes en lugar del backend en Python, con el SDK oficial de Gemini", "Salida en JSON, lo que dio control total sobre la interfaz", "Preparado para deploy en Vercel"] } }
+        ]},
+        { titulo: { pt: "Próximos passos", en: "Next steps", es: "Próximos pasos" }, lista: {
+          pt: ["Publicar uma versão online", "Histórico de análises", "Orquestração com n8n e MCP"],
+          en: ["Publish an online version", "Analysis history", "Orchestration with n8n and MCP"],
+          es: ["Publicar una versión online", "Historial de análisis", "Orquestación con n8n y MCP"] } }
+      ]
+    },
+    {
+      nome: { pt: "Site para fisioterapeuta com painel administrativo", en: "Physiotherapist website with admin panel", es: "Sitio para fisioterapeuta con panel administrativo" },
+      status: { pt: "freela", en: "freelance", es: "freelance" },
+      ano: "2026",
+      resumo: { pt: "Site para um fisioterapeuta especializado em reabilitação geriátrica e osteopatia, com uma área administrativa onde ele mesmo atualiza o conteúdo.", en: "Website for a physiotherapist specialized in geriatric rehabilitation and osteopathy, with an admin area where he updates the content himself.", es: "Sitio para un fisioterapeuta especializado en rehabilitación geriátrica y osteopatía, con un área administrativa donde él mismo actualiza el contenido." },
+      tags: ["JavaScript", "HTML", "CSS", "Supabase", "Vercel"],
+      links: [],
+      previas: [{ src: "img/fisio-home.jpg", legenda: { pt: "Página inicial do site", en: "Website home page", es: "Página de inicio del sitio" } }],
+      detalhes: [
+        { titulo: { pt: "O que implementei", en: "What I built", es: "Qué implementé" }, lista: {
+          pt: ["Páginas de início, programas de reabilitação, publicações e área profissional", "Login com Supabase Auth para a área restrita", "Painel para cadastrar, editar e excluir tratamentos, publicações e avaliações de pacientes", "Upload de imagens", "Animações de entrada e layout responsivo"],
+          en: ["Home, rehabilitation programs, publications and professional area pages", "Login with Supabase Auth for the restricted area", "Panel to create, edit and delete treatments, posts and patient reviews", "Image upload", "Entrance animations and responsive layout"],
+          es: ["Páginas de inicio, programas de rehabilitación, publicaciones y área profesional", "Login con Supabase Auth para el área restringida", "Panel para crear, editar y eliminar tratamientos, publicaciones y reseñas de pacientes", "Carga de imágenes", "Animaciones de entrada y diseño responsive"] } },
+        { titulo: { pt: "Arquitetura", en: "Architecture", es: "Arquitectura" }, fluxo: [
+          { t: "Front-end", d: { pt: "HTML, CSS e JavaScript puro", en: "plain HTML, CSS and JavaScript", es: "HTML, CSS y JavaScript puro" } },
+          { t: "Supabase", d: { pt: "autenticação, banco de dados (tratamentos, posts, avaliações) e armazenamento de imagens", en: "authentication, database (treatments, posts, reviews) and image storage", es: "autenticación, base de datos (tratamientos, posts, reseñas) y almacenamiento de imágenes" } },
+          { t: "Vercel", d: { pt: "hospedagem", en: "hosting", es: "hosting" } }
+        ]},
+        { titulo: { pt: "Por que essa stack", en: "Why this stack", es: "Por qué este stack" }, texto: { pt: "Não existe servidor próprio para manter. O cliente edita tudo pelo painel e o site lê direto do Supabase, com custo baixo e deploy simples.", en: "There's no server to maintain. The client edits everything through the panel and the site reads straight from Supabase, with low cost and simple deployment.", es: "No hay servidor propio que mantener. El cliente edita todo desde el panel y el sitio lee directo de Supabase, con bajo costo y deploy sencillo." } }
+      ]
+    }
+  ],
+
+  lab: [
+    { titulo: { pt: "Agentes de IA com MCP e n8n", en: "AI agents with MCP and n8n", es: "Agentes de IA con MCP y n8n" }, tag: { pt: "Explorando...", en: "Exploring...", es: "Explorando..." }, texto: { pt: "Curso da Alura sobre Model Context Protocol (MCP) e otimização de agentes de IA com n8n.", en: "Alura course on the Model Context Protocol (MCP) and optimizing AI agents with n8n.", es: "Curso de Alura sobre Model Context Protocol (MCP) y optimización de agentes de IA con n8n." }, chips: ["MCP", "n8n", { pt: "Agentes", en: "Agents", es: "Agentes" }] },
+    { titulo: { pt: "Próximo projeto", en: "Next project", es: "Próximo proyecto" }, tag: { pt: "em breve", en: "coming soon", es: "próximamente" }, texto: { pt: "Automações com agentes de IA usando n8n e servidores MCP.", en: "Automations with AI agents using n8n and MCP servers.", es: "Automatizaciones con agentes de IA usando n8n y servidores MCP." }, chips: ["n8n", "MCP Server"] }
+  ],
+
+  contato: [
+    { i: "phone", t: "(71) 98887-8785", u: "https://wa.me/5571988878785" },
+    { i: "mail", t: "bbrenda_ra@hotmail.com", u: "mailto:bbrenda_ra@hotmail.com" },
+    { i: "in", t: "LinkedIn", u: "https://linkedin.com/in/brendacampos-ssa" }
+  ],
+
+  formacao: [
+    { titulo: { pt: "Pós-graduação em Ciência de Dados e Big Data", en: "Postgraduate degree in Data Science and Big Data", es: "Posgrado en Ciencia de Datos y Big Data" }, inst: "PUC Minas", periodo: { pt: "2024 a 2026", en: "2024 to 2026", es: "2024 a 2026" } },
+    { titulo: { pt: "Tecnólogo em Análise e Desenvolvimento de Sistemas", en: "Associate degree in Systems Analysis and Development", es: "Tecnicatura en Análisis y Desarrollo de Sistemas" }, inst: "UniRuy Wyden", periodo: { pt: "2021 a 2024", en: "2021 to 2024", es: "2021 a 2024" } },
+    { titulo: { pt: "MCP: Otimização de agentes de IA com n8n", en: "MCP: Optimizing AI agents with n8n", es: "MCP: Optimización de agentes de IA con n8n" }, inst: "Alura", periodo: { pt: "em andamento", en: "in progress", es: "en curso" } },
+    { titulo: { pt: "LLMs e Agentes de IA para Empresas e Negócios", en: "LLMs and AI Agents for Companies and Business", es: "LLMs y Agentes de IA para Empresas y Negocios" }, inst: "Udemy", periodo: "2026" }
+  ],
+
+  idiomas: [
+    { titulo: { pt: "Português", en: "Portuguese", es: "Portugués" }, inst: { pt: "Nativo", en: "Native", es: "Nativo" } },
+    { titulo: { pt: "Espanhol", en: "Spanish", es: "Español" }, inst: { pt: "Básico", en: "Basic", es: "Básico" }, texto: { pt: "Boa compreensão auditiva e conversação básica.", en: "Good listening comprehension and basic speaking.", es: "Buena comprensión auditiva y conversación básica." } },
+    { titulo: { pt: "Inglês", en: "English", es: "Inglés" }, inst: { pt: "Básico", en: "Basic", es: "Básico" }, texto: { pt: "Em estudo na English Live.", en: "Currently studying at English Live.", es: "En estudio en English Live." } }
+  ],
+
+  voluntariado: [
+    { titulo: "Núcleo de Inclusão Digital - UniRuy Wyden", inst: { pt: "Projeto acadêmico", en: "Academic project", es: "Proyecto académico" }, periodo: "2024", texto: { pt: "Planejei e estruturei aulas de lógica de programação com Python para alunos da APAE, com uma didática interativa e acessível.", en: "I planned and structured Python programming logic classes for APAE students, with an interactive and accessible approach.", es: "Planifiqué y estructuré clases de lógica de programación con Python para alumnos de APAE, con una didáctica interactiva y accesible." } }
+  ]
+};
+
+/* Textos fixos da página */
+const UI = {
+  pt: {
+    nav: ["Sobre", "Experiência", "Projetos", "Lab", "Formação", "Contato"],
+    h1: 'Dados, sistemas<br>e IA aplicada <span>ao negócio.</span>',
+    lead: "Sou Brenda, Analista de Sistemas e Dados em Salvador (BA). Transformo dados e processos em soluções por meio de automações, integrações e dashboards. Hoje exploro o uso de IA no desenvolvimento de agentes com LLMs, n8n e MCP.",
+    verProjetos: "Ver projetos", contatoBtn: "Entrar em contato",
+    sobreEy: "Sobre", sobreH: "Um pouco sobre mim",
+    sobre: `<p>Minha trajetória na tecnologia começou em 2023, como estagiária de TI, e foi marcada por uma evolução dentro da mesma empresa, passando por diferentes funções até chegar à posição de Analista de Dados Pleno.</p>
+<p>Ao longo desse caminho, tive a oportunidade de trabalhar diretamente com diferentes áreas do negócio, como Financeiro, Jurídico, Contratos e Governança, participando desde o levantamento de necessidades e mapeamento de processos até o desenvolvimento de soluções. Nesse contexto, construí automações, aplicações, integrações entre sistemas e dashboards, contribuindo para simplificar rotinas, reduzir atividades manuais e tornar processos mais eficientes.</p>
+<p>Minha formação em Análise e Desenvolvimento de Sistemas, somada à pós-graduação em Ciência de Dados e Big Data pela PUC Minas, ampliou minha visão sobre como a tecnologia pode ser aplicada para resolver problemas e gerar valor para as organizações.</p>
+<p>Gosto de explorar novas ferramentas, aprender na prática e transformar desafios em soluções. É isso que me motiva a continuar evoluindo e explorando novas possibilidades na tecnologia.</p>`,
+    expEy: "Experiência", expH: "Trajetória profissional", expP: "Abra cada item para ver o contexto, o que implementei e o resultado.",
+    projEy: "Projetos", projH: "O que tenho construído", projP: "Projetos pessoais e freelas.",
+    labEy: "Lab", labH: "Em construção", labP: "O que estou explorando e construindo agora.",
+    eduEy: "Formação", eduH: "Formação e cursos", idH: "Idiomas",
+    volEy: "Voluntariado", volH: "Trabalho voluntário",
+    ctH: "Vamos conversar?", ctP: "Me chama por qualquer um dos canais abaixo.",
+    verAtiv: "Ver atividades", ocAtiv: "Ocultar atividades", atual: "atual",
+    contexto: "Contexto", implementei: "O que implementei", resultado: "Resultado",
+    verDet: "Ver detalhes", ocDet: "Ocultar detalhes", previa: "Prévia",
+    meses: ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"],
+    a: "a", hoje: "hoje", e: "e", ano: ["ano","anos"], mes: ["mês","meses"],
+    foto: "Foto de Brenda Campos", tema: "Alternar tema", fechar: "Fechar",
+    pular: "Pular para o conteúdo", menu: "Menu", novaAba: "(abre em nova aba)", ouvir: "Ouvir página", parar: "Parar leitura", ouvirSec: "Ouvir esta seção", anterior: "Anterior", proxima: "Próxima"
+  },
+  en: {
+    nav: ["About", "Experience", "Projects", "Lab", "Education", "Contact"],
+    h1: 'Data, systems<br>and AI applied <span>to business.</span>',
+    lead: "I'm Brenda, a Systems and Data Analyst based in Salvador, Brazil. I turn data and processes into solutions through automations, integrations and dashboards. Right now I'm exploring AI to build agents with LLMs, n8n and MCP.",
+    verProjetos: "See projects", contatoBtn: "Get in touch",
+    sobreEy: "About", sobreH: "A little about me",
+    sobre: `<p>My path in tech started in 2023 as an IT intern, and it has been one of steady growth within the same company, moving through different roles until reaching Mid-level Data Analyst.</p>
+<p>Along the way, I've worked directly with several business areas, such as Finance, Legal, Contracts and Governance, taking part in everything from gathering needs and mapping processes to building solutions. In that context, I built automations, applications, system integrations and dashboards that helped simplify routines, cut manual work and make processes more efficient.</p>
+<p>My degree in Systems Analysis and Development, together with a postgraduate degree in Data Science and Big Data from PUC Minas, broadened my view of how technology can solve problems and create value for organizations.</p>
+<p>I enjoy exploring new tools, learning by doing and turning challenges into solutions. That's what keeps me growing and exploring new possibilities in tech.</p>`,
+    expEy: "Experience", expH: "Career path", expP: "Open each item to see the context, what I built and the result.",
+    projEy: "Projects", projH: "What I've been building", projP: "Personal and freelance projects.",
+    labEy: "Lab", labH: "In progress", labP: "What I'm exploring and building right now.",
+    eduEy: "Education", eduH: "Education and courses", idH: "Languages",
+    volEy: "Volunteering", volH: "Volunteer work",
+    ctH: "Let's talk?", ctP: "Reach me through any of the channels below.",
+    verAtiv: "See activities", ocAtiv: "Hide activities", atual: "current",
+    contexto: "Context", implementei: "What I built", resultado: "Result",
+    verDet: "See details", ocDet: "Hide details", previa: "Preview",
+    meses: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+    a: "to", hoje: "present", e: "and", ano: ["year","years"], mes: ["month","months"],
+    foto: "Photo of Brenda Campos", tema: "Toggle theme", fechar: "Close",
+    pular: "Skip to content", menu: "Menu", novaAba: "(opens in a new tab)", ouvir: "Listen to page", parar: "Stop reading", ouvirSec: "Listen to this section", anterior: "Previous", proxima: "Next"
+  },
+  es: {
+    nav: ["Sobre mí", "Experiencia", "Proyectos", "Lab", "Formación", "Contacto"],
+    h1: 'Datos, sistemas<br>e IA aplicada <span>al negocio.</span>',
+    lead: "Soy Brenda, Analista de Sistemas y Datos en Salvador, Brasil. Transformo datos y procesos en soluciones mediante automatizaciones, integraciones y dashboards. Hoy exploro el uso de IA en el desarrollo de agentes con LLMs, n8n y MCP.",
+    verProjetos: "Ver proyectos", contatoBtn: "Contactar",
+    sobreEy: "Sobre mí", sobreH: "Un poco sobre mí",
+    sobre: `<p>Mi trayectoria en tecnología comenzó en 2023 como pasante de TI y estuvo marcada por una evolución dentro de la misma empresa, pasando por distintas funciones hasta llegar al puesto de Analista de Datos Semi Senior.</p>
+<p>En este camino, tuve la oportunidad de trabajar directamente con distintas áreas del negocio, como Finanzas, Jurídico, Contratos y Gobierno Corporativo, participando desde el levantamiento de necesidades y el mapeo de procesos hasta el desarrollo de soluciones. En ese contexto, construí automatizaciones, aplicaciones, integraciones entre sistemas y dashboards, ayudando a simplificar rutinas, reducir tareas manuales y hacer los procesos más eficientes.</p>
+<p>Mi formación en Análisis y Desarrollo de Sistemas, sumada al posgrado en Ciencia de Datos y Big Data de la PUC Minas, amplió mi visión sobre cómo la tecnología puede aplicarse para resolver problemas y generar valor para las organizaciones.</p>
+<p>Me gusta explorar nuevas herramientas, aprender en la práctica y convertir desafíos en soluciones. Eso es lo que me motiva a seguir evolucionando y explorando nuevas posibilidades en la tecnología.</p>`,
+    expEy: "Experiencia", expH: "Trayectoria profesional", expP: "Abre cada ítem para ver el contexto, lo que implementé y el resultado.",
+    projEy: "Proyectos", projH: "Lo que he construido", projP: "Proyectos personales y freelance.",
+    labEy: "Lab", labH: "En construcción", labP: "Lo que estoy explorando y construyendo ahora.",
+    eduEy: "Formación", eduH: "Formación y cursos", idH: "Idiomas",
+    volEy: "Voluntariado", volH: "Trabajo voluntario",
+    ctH: "¿Hablamos?", ctP: "Escríbeme por cualquiera de los canales de abajo.",
+    verAtiv: "Ver actividades", ocAtiv: "Ocultar actividades", atual: "actual",
+    contexto: "Contexto", implementei: "Qué implementé", resultado: "Resultado",
+    verDet: "Ver detalles", ocDet: "Ocultar detalles", previa: "Vista previa",
+    meses: ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"],
+    a: "a", hoje: "hoy", e: "y", ano: ["año","años"], mes: ["mes","meses"],
+    foto: "Foto de Brenda Campos", tema: "Cambiar tema", fechar: "Cerrar",
+    pular: "Saltar al contenido", menu: "Menú", novaAba: "(se abre en una pestaña nueva)", ouvir: "Escuchar página", parar: "Detener lectura", ouvirSec: "Escuchar esta sección", anterior: "Anterior", proxima: "Siguiente"
+  }
+};
+
+/* ================= renderização (não precisa mexer) ================= */
+const store = { get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} } };
+let lang = ["pt", "en", "es"].includes(store.get("lang")) ? store.get("lang") : "pt";
+const T = () => UI[lang];
+const L = x => (x && typeof x === "object" && !Array.isArray(x) && "pt" in x) ? (x[lang] ?? x.pt) : x;
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const E = x => esc(L(x));
+const $ = id => document.getElementById(id);
+const ic = n => `<svg class="ic"><use href="#i-${n}"/></svg>`;
+
+function bloco(d) {
+  let h = "";
+  if (d.texto) h += `<p>${E(d.texto)}</p>`;
+  if (d.lista) h += `<ul>${L(d.lista).map(i => `<li>${E(i)}</li>`).join("")}</ul>`;
+  if (d.fluxo) h += `<div class="flow">${d.fluxo.map((n, i) =>
+      (i ? `<div class="arrow">${ic("right")}</div>` : "") + `<div class="node"><b>${E(n.t)}</b><span>${E(n.d)}</span></div>`).join("")}</div>`;
+  if (d.codigo) h += `<pre class="tree">${E(d.codigo)}</pre>`;
+  if (d.detalhes) h += d.detalhes.map(secao).join("");
+  return h;
+}
+function secao(d) {
+  return `<details class="dd"><summary><svg class="ic chev"><use href="#i-chev"/></svg>${E(d.titulo)}</summary><div class="in">${bloco(d)}</div></details>`;
+}
+const ym = v => v.split("-").map(Number);
+const hoje = () => { const d = new Date(); return [d.getFullYear(), d.getMonth() + 1]; };
+const nMeses = ([a1, m1], [a2, m2]) => (a2 - a1) * 12 + (m2 - m1) + 1;
+function dur(t) {
+  const u = T(), a = Math.floor(t / 12), m = t % 12;
+  return [a ? `${a} ${u.ano[a > 1 ? 1 : 0]}` : "", m ? `${m} ${u.mes[m > 1 ? 1 : 0]}` : ""].filter(Boolean).join(` ${u.e} `);
+}
+const mesAno = ([a, m]) => `${T().meses[m - 1]}/${a}`;
+function item(it) {
+  const u = T(), impl = L(it.implementei);
+  const imp = Array.isArray(impl) ? `<ul>${impl.map(i => `<li>${E(i)}</li>`).join("")}</ul>` : `<p>${E(impl)}</p>`;
+  return `<details class="dd"><summary><svg class="ic chev"><use href="#i-chev"/></svg>${E(it.titulo)}</summary><div class="in ctx">
+    <div class="row"><b>${u.contexto}</b><div><p>${E(it.contexto)}</p></div></div>
+    <div class="row"><b>${u.implementei}</b><div>${imp}</div></div>
+    <div class="row"><b>${u.resultado}</b><div><p>${E(it.resultado)}</p></div></div>
+  </div></details>`;
+}
+function role(f) {
+  const u = T(), ini = ym(f.inicio), fim = f.fim ? ym(f.fim) : hoje();
+  const head = `<div class="tdate">${mesAno(ini)} ${u.a} ${f.fim ? mesAno(fim) : u.hoje}<small>${dur(nMeses(ini, fim))}</small></div><div class="tdot"></div>`;
+  const badge = !f.fim ? `<em class="badge now">${u.atual}</em>` : "";
+  if (f.itens) return `<details class="trole ${!f.fim ? "now" : ""}"><summary>${head}<div class="tbody"><h4>${E(f.cargo)}${badge}</h4><span class="tcount"><span class="o">${u.verAtiv}</span><span class="c">${u.ocAtiv}</span></span></div><svg class="ic chev"><use href="#i-chev"/></svg></summary><div class="titems">${f.itens.map(item).join("")}</div></details>`;
+  return `<div class="trole ${!f.fim ? "now" : ""}"><div class="thead">${head}<div class="tbody"><h4>${E(f.cargo)}${badge}</h4>${f.bullets ? `<ul class="bul">${L(f.bullets).map(b => `<li>${E(b)}</li>`).join("")}</ul>` : ""}</div></div></div>`;
+}
+function totalEmpresa(e) {
+  const ini = e.funcoes.map(f => ym(f.inicio)).sort((x, y) => x[0] - y[0] || x[1] - y[1])[0];
+  const fim = e.funcoes.map(f => f.fim ? ym(f.fim) : hoje()).sort((x, y) => y[0] - x[0] || y[1] - x[1])[0];
+  return dur(nMeses(ini, fim));
+}
+const chips = (arr, cls = "") => `<div class="chips">${arr.map(t => `<span class="chip ${cls}">${E(t)}</span>`).join("")}</div>`;
+const simpleCard = f => `
+  <div class="card reveal">
+    <div class="card-top"><h3>${E(f.titulo)}</h3><span class="when">${E(f.periodo)}</span></div>
+    <div class="org">${E(f.inst)}</div>${f.texto ? `<p class="sum" style="margin:8px 0 0">${E(f.texto)}</p>` : ""}
+  </div>`;
+
+function render() {
+  const u = T();
+  document.documentElement.lang = { pt: "pt-BR", en: "en", es: "es" }[lang];
+  document.querySelectorAll("[data-i]").forEach(el => { el.innerHTML = u[el.dataset.i]; });
+  document.querySelectorAll("nav ul a").forEach((a, i) => a.textContent = u.nav[i]);
+  document.querySelectorAll(".langs button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
+  $("foto").alt = u.foto; $("themeBtn").setAttribute("aria-label", u.tema); $("lbx").setAttribute("aria-label", u.fechar);
+  $("menuBtn").setAttribute("aria-label", u.menu); $("lbp").setAttribute("aria-label", u.anterior); $("lbn").setAttribute("aria-label", u.proxima);
+  narUI();
+
+  $("stats").innerHTML = DATA.stats.map(s => `<div class="stat"><b>${E(s.n)}</b><span>${E(s.t)}</span></div>`).join("");
+  $("skills").innerHTML = DATA.skills.map(s => `<div class="skill"><h3>${E(s.area)}</h3>${chips(s.itens, s.cls ? "acc" : "")}</div>`).join("");
+
+  $("exp").innerHTML = DATA.experiencias.map(e => `
+    <div class="card reveal">
+      <div class="company">
+        ${e.logo ? `<div class="clogo"><img src="${esc(e.logo)}" alt="${E(e.org)}"></div>` : ""}
+        <div><h3>${E(e.org)}</h3><small>${ic("pin")}${E(e.local)}<span style="margin:0 4px">·</span>${totalEmpresa(e)}</small></div>
+      </div>
+      <div class="tl2">${e.funcoes.map(role).join("")}</div>
+    </div>`).join("");
+
+  $("proj").innerHTML = DATA.projetos.map((p, i) => `
+    <div class="card reveal">
+      <div class="card-top">
+        <h3>${E(p.nome)}${L(p.status) ? `<em class="badge">${E(p.status)}</em>` : ""}</h3>
+        <span class="when">${E(p.ano)}</span>
+      </div>
+      <p class="sum">${E(p.resumo)}</p>
+      ${chips(p.tags)}
+      <div class="pact">
+        <button class="pbtn" aria-expanded="false" data-more="${i}"><svg class="ic chev"><use href="#i-chev"/></svg><span>${u.verDet}</span></button>
+        ${p.previas?.length ? `<button class="pbtn" data-prev="${i}">${ic("eye")}${u.previa}</button>` : ""}
+        ${(p.links || []).map(l => `<a class="pbtn" href="${esc(l.u)}" target="_blank" rel="noopener">${E(l.t)}${ic("arrow")}</a>`).join("")}
+      </div>
+      <div class="pmore" id="more-${i}" hidden>${p.detalhes.map(secao).join("")}</div>
+    </div>`).join("");
+
+  $("labs").innerHTML = DATA.lab.map(l => `
+    <div class="card lab reveal">
+      <h3>${E(l.titulo)}<em class="badge">${E(l.tag)}</em></h3>
+      <p class="sum" style="margin-bottom:14px">${E(l.texto)}</p>${chips(l.chips)}
+    </div>`).join("");
+
+  $("edu").innerHTML = DATA.formacao.map(simpleCard).join("");
+  $("langs").innerHTML = DATA.idiomas.map(f => `
+    <div class="card reveal"><h3>${E(f.titulo)}</h3><div class="org">${E(f.inst)}</div>${f.texto ? `<p class="sum" style="margin:8px 0 0">${E(f.texto)}</p>` : ""}</div>`).join("");
+  $("vol").innerHTML = DATA.voluntariado.map(simpleCard).join("");
+  $("contacts").innerHTML = DATA.contato.map(c => `<a href="${esc(c.u)}" target="_blank" rel="noopener">${ic(c.i)}${E(c.t)}</a>`).join("");
+  $("y").textContent = new Date().getFullYear();
+  document.querySelectorAll('a[target="_blank"]').forEach(a => { a.querySelector(".sr")?.remove(); a.insertAdjacentHTML("beforeend", `<span class="sr"> ${u.novaAba}</span>`); });
+  observe();
+}
+
+/* animação de entrada */
+const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } }), { threshold: .08 }) : null;
+let rendered = false;
+function observe() {
+  document.querySelectorAll(".reveal:not(.on)").forEach(el => (io && !rendered) ? io.observe(el) : el.classList.add("on"));
+  rendered = true;
+}
+
+/* idioma */
+document.querySelectorAll(".langs button").forEach(b => b.onclick = () => { narStop(); lang = b.dataset.lang; store.set("lang", lang); render(); });
+
+/* menu no celular */
+$("menuBtn").onclick = () => { const ul = $("navlist"), o = ul.classList.toggle("open"); $("menuBtn").setAttribute("aria-expanded", o); };
+$("navlist").addEventListener("click", e => { if (e.target.closest("a")) { $("navlist").classList.remove("open"); $("menuBtn").setAttribute("aria-expanded", "false"); } });
+
+/* narração (leitura em voz alta do navegador) */
+const synth = "speechSynthesis" in window ? window.speechSynthesis : null;
+let narrando = false, narSec = null;
+function narUI() {
+  const b = $("narBtn"); if (!synth) return; b.hidden = false;
+  const geral = narrando && !narSec;
+  b.setAttribute("aria-pressed", geral);
+  b.querySelector("span").textContent = geral ? T().parar : T().ouvir;
+  b.querySelector("use").setAttribute("href", geral ? "#i-stop" : "#i-audio");
+  document.querySelectorAll(".lsn").forEach(x => {
+    const on = narrando && narSec === x.dataset.sec;
+    x.hidden = false; x.classList.toggle("on", on);
+    x.setAttribute("aria-label", on ? T().parar : T().ouvirSec); x.title = x.getAttribute("aria-label");
+    x.querySelector("use").setAttribute("href", on ? "#i-stop" : "#i-audio");
+  });
+}
+function narStop() { if (synth) synth.cancel(); narrando = false; narSec = null; narUI(); }
+function narrar(secs, id) {
+  const partes = secs.map(sec => sec.innerText).join("\n").split(/(?<=[.!?])\s+|\n+/).map(t => t.trim()).filter(t => t.length > 1);
+  const code = { pt: "pt-BR", en: "en-US", es: "es-ES" }[lang];
+  const voz = synth.getVoices().find(v => v.lang.replace("_", "-").toLowerCase().startsWith(code.slice(0, 2)));
+  synth.cancel();
+  partes.forEach((p, i) => { const ut = new SpeechSynthesisUtterance(p); ut.lang = code; if (voz) ut.voice = voz; if (i === partes.length - 1) ut.onend = () => { narrando = false; narSec = null; narUI(); }; synth.speak(ut); });
+  narrando = true; narSec = id || null; narUI();
+}
+const secoes = () => [...document.querySelectorAll("#main > header, #main > section, #main > #contato")];
+$("narBtn").onclick = () => {
+  if (!synth) return;
+  if (narrando && !narSec) return narStop();
+  const secs = secoes();
+  let ini = secs.findIndex(sec => sec.getBoundingClientRect().bottom > 90); if (ini < 0) ini = 0;
+  narrar(secs.slice(ini));
+};
+/* botão de ouvir em cada seção */
+if (synth) document.querySelectorAll("#main > section, #main > #contato").forEach(sec => {
+  const h = sec.querySelector("h2"); if (!h) return;
+  const btn = document.createElement("button");
+  btn.className = "lsn"; btn.dataset.sec = sec.id; btn.innerHTML = '<svg class="ic" aria-hidden="true"><use href="#i-audio"/></svg>';
+  btn.onclick = () => { if (narrando && narSec === sec.id) return narStop(); narrar([sec], sec.id); };
+  h.after(btn);
+});
+narUI();
+addEventListener("pagehide", narStop);
+
+/* tema */
+function setTheme(t) { document.documentElement.dataset.theme = t; store.set("theme", t); }
+$("themeBtn").onclick = () => setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
+
+/* detalhes + prévia */
+let lbList = [], lbIdx = 0;
+function lbShow() { const it = lbList[lbIdx]; $("lbimg").src = it.src; $("lbimg").alt = L(it.legenda) || ""; $("lbcap").textContent = `${L(it.legenda) || ""}${lbList.length > 1 ? `  (${lbIdx + 1}/${lbList.length})` : ""}`; $("lbp").hidden = $("lbn").hidden = lbList.length < 2; }
+let lbOrigem = null;
+function lbClose() { $("lb").hidden = true; document.body.style.overflow = ""; if (lbOrigem) lbOrigem.focus(); }
+document.addEventListener("click", ev => {
+  const m = ev.target.closest("[data-more]");
+  if (m) { const box = $("more-" + m.dataset.more); box.hidden = !box.hidden; m.setAttribute("aria-expanded", !box.hidden); m.querySelector("span").textContent = box.hidden ? T().verDet : T().ocDet; return; }
+  const pv = ev.target.closest("[data-prev]");
+  if (pv) { lbOrigem = pv; lbList = DATA.projetos[pv.dataset.prev].previas; lbIdx = 0; lbShow(); $("lb").hidden = false; document.body.style.overflow = "hidden"; $("lbx").focus(); return; }
+  if (ev.target.id === "lb") lbClose();
+});
+$("lbx").onclick = lbClose;
+$("lbp").onclick = () => { lbIdx = (lbIdx - 1 + lbList.length) % lbList.length; lbShow(); };
+$("lbn").onclick = () => { lbIdx = (lbIdx + 1) % lbList.length; lbShow(); };
+addEventListener("keydown", ev => { if ($("lb").hidden) return;
+  if (ev.key === "Tab") { const f = [...$("lb").querySelectorAll("button")].filter(b => !b.hidden); const i = f.indexOf(document.activeElement); ev.preventDefault(); f[(i + (ev.shiftKey ? -1 : 1) + f.length) % f.length].focus(); return; }
+  if (ev.key === "Escape") lbClose(); if (ev.key === "ArrowRight") $("lbn").click(); if (ev.key === "ArrowLeft") $("lbp").click(); });
+addEventListener("scroll", () => $("nav").classList.toggle("sc", scrollY > 10), { passive: true });
+
+render();
+</script>
+<!-- VLibras (tradução para Libras, governo federal) -->
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>try { new window.VLibras.Widget("https://vlibras.gov.br/app"); } catch (e) {}</script>
+</body>
+</html>
