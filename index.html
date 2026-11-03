@@ -386,6 +386,7 @@ footer{text-align:center;color:var(--faint);font-size:.82rem;padding:0 0 40px}
 
    EXPERIÊNCIAS: inicio/fim em "AAAA-MM". fim: null = cargo atual.
    Cada item em "itens" mostra Contexto, O que implementei e Resultado.
+   Campo vazio ("") não aparece no site. Preencha quando quiser.
    ========================================================== */
 const DATA = {
   stats: [
@@ -413,27 +414,39 @@ const DATA = {
           itens: [
             {
               titulo: { pt: "Integração entre sistemas via APIs REST", en: "System integration via REST APIs", es: "Integración entre sistemas vía APIs REST" },
-              contexto: { pt: "Sistemas corporativos que não conversavam entre si, o que obrigava as equipes a repassar informações manualmente.", en: "Corporate systems that didn't talk to each other, forcing teams to pass information along manually.", es: "Sistemas corporativos que no se comunicaban entre sí, lo que obligaba a los equipos a traspasar información manualmente." },
-              implementei: { pt: ["Desenvolvimento e consumo de APIs REST", "Automações em JavaScript com as regras de negócio de cada integração"], en: ["Building and consuming REST APIs", "JavaScript automations with the business rules of each integration"], es: ["Desarrollo y consumo de APIs REST", "Automatizaciones en JavaScript con las reglas de negocio de cada integración"] },
-              resultado: { pt: "Dados passando de um sistema para outro automaticamente, com menos retrabalho e menos erro de digitação.", en: "Data flowing between systems automatically, with less rework and fewer typing errors.", es: "Datos que pasan de un sistema a otro automáticamente, con menos retrabajo y menos errores de digitación." }
+              contexto: "",
+              implementei: { pt: "Desenvolvimento e consumo de APIs REST para integração entre sistemas corporativos.", en: "Building and consuming REST APIs to integrate corporate systems.", es: "Desarrollo y consumo de APIs REST para la integración entre sistemas corporativos." },
+              resultado: ""
+            },
+            {
+              titulo: { pt: "Automações e regras de negócio em JavaScript", en: "JavaScript automations and business rules", es: "Automatizaciones y reglas de negocio en JavaScript" },
+              contexto: "",
+              implementei: { pt: "Desenvolvimento de automações e regras de negócio em JavaScript para integração de sistemas.", en: "Built automations and business rules in JavaScript to integrate systems.", es: "Desarrollo de automatizaciones y reglas de negocio en JavaScript para la integración de sistemas." },
+              resultado: ""
             },
             {
               titulo: { pt: "Componentes web para visualização de dados", en: "Web components for data visualization", es: "Componentes web para visualización de datos" },
-              contexto: { pt: "As áreas precisavam consultar e interagir com dados dentro dos sistemas que já usavam no dia a dia.", en: "Teams needed to view and interact with data inside the systems they already used every day.", es: "Las áreas necesitaban consultar e interactuar con datos dentro de los sistemas que ya usaban a diario." },
-              implementei: { pt: "Componentes personalizados em TypeScript, HTML e CSS.", en: "Custom components in TypeScript, HTML and CSS.", es: "Componentes personalizados en TypeScript, HTML y CSS." },
-              resultado: { pt: "Informação disponível no próprio fluxo de trabalho, sem depender de planilhas paralelas.", en: "Information available right in the workflow, without side spreadsheets.", es: "Información disponible en el propio flujo de trabajo, sin depender de hojas de cálculo paralelas." }
+              contexto: "",
+              implementei: { pt: "Criação de componentes web personalizados em TypeScript, HTML e CSS para visualização e interação com dados.", en: "Created custom web components in TypeScript, HTML and CSS to view and interact with data.", es: "Creación de componentes web personalizados en TypeScript, HTML y CSS para visualizar e interactuar con datos." },
+              resultado: ""
             },
             {
-              titulo: { pt: "Dashboards e análise de dados", en: "Dashboards and data analysis", es: "Dashboards y análisis de datos" },
-              contexto: { pt: "Gestores precisavam acompanhar métricas operacionais para tomar decisões.", en: "Managers needed to track operational metrics to make decisions.", es: "Los gestores necesitaban seguir métricas operativas para tomar decisiones." },
-              implementei: { pt: ["Consultas SQL para extração, transformação e análise", "Dashboards analíticos e operacionais"], en: ["SQL queries for extraction, transformation and analysis", "Analytical and operational dashboards"], es: ["Consultas SQL para extracción, transformación y análisis", "Dashboards analíticos y operativos"] },
-              resultado: { pt: "Métricas acompanhadas em um só lugar, servindo de base para as decisões das áreas.", en: "Metrics tracked in one place, supporting each team's decisions.", es: "Métricas reunidas en un solo lugar, como base para las decisiones de las áreas." }
+              titulo: { pt: "Dashboards analíticos e operacionais", en: "Analytical and operational dashboards", es: "Dashboards analíticos y operativos" },
+              contexto: "",
+              implementei: { pt: "Construção de dashboards analíticos e operacionais.", en: "Built analytical and operational dashboards.", es: "Construcción de dashboards analíticos y operativos." },
+              resultado: { pt: "Acompanhamento de métricas e suporte à tomada de decisão.", en: "Metric tracking and decision-making support.", es: "Seguimiento de métricas y apoyo a la toma de decisiones." }
+            },
+            {
+              titulo: { pt: "Consultas SQL", en: "SQL queries", es: "Consultas SQL" },
+              contexto: "",
+              implementei: { pt: "Desenvolvimento de consultas SQL para extração, transformação e análise de dados.", en: "Wrote SQL queries for data extraction, transformation and analysis.", es: "Desarrollo de consultas SQL para extracción, transformación y análisis de datos." },
+              resultado: ""
             },
             {
               titulo: { pt: "Análise de dados com IA", en: "AI-powered data analysis", es: "Análisis de datos con IA" },
-              contexto: { pt: "Interesse da empresa em tirar mais valor dos dados que já existiam.", en: "The company wanted to get more value from the data it already had.", es: "Interés de la empresa en obtener más valor de los datos existentes." },
-              implementei: { pt: "Participação em iniciativas de análise inteligente de dados usando técnicas de Inteligência Artificial.", en: "Took part in intelligent data analysis initiatives using Artificial Intelligence techniques.", es: "Participación en iniciativas de análisis inteligente de datos con técnicas de Inteligencia Artificial." },
-              resultado: { pt: "Novos insights a partir de dados que antes eram pouco explorados.", en: "New insights from data that was previously underused.", es: "Nuevos insights a partir de datos que antes se exploraban poco." }
+              contexto: "",
+              implementei: { pt: "Participação em iniciativas de análise inteligente de dados com técnicas de Inteligência Artificial.", en: "Took part in intelligent data analysis initiatives using Artificial Intelligence techniques.", es: "Participación en iniciativas de análisis inteligente de datos con técnicas de Inteligencia Artificial." },
+              resultado: ""
             }
           ]
         },
@@ -442,27 +455,27 @@ const DATA = {
           itens: [
             {
               titulo: { pt: "Automação de fluxos corporativos", en: "Corporate workflow automation", es: "Automatización de flujos corporativos" },
-              contexto: { pt: "Fluxos com muitas etapas manuais e regras aplicadas caso a caso.", en: "Workflows with many manual steps and rules applied case by case.", es: "Flujos con muchas etapas manuales y reglas aplicadas caso por caso." },
-              implementei: { pt: "Processos automatizados e regras de negócio configuradas no próprio fluxo.", en: "Automated processes with business rules built into the workflow.", es: "Procesos automatizados y reglas de negocio configuradas en el propio flujo." },
-              resultado: { pt: "Fluxos mais rápidos e padronizados.", en: "Faster, standardized workflows.", es: "Flujos más rápidos y estandarizados." }
+              contexto: "",
+              implementei: { pt: "Desenvolvimento de processos automatizados e regras de negócio.", en: "Built automated processes and business rules.", es: "Desarrollo de procesos automatizados y reglas de negocio." },
+              resultado: { pt: "Otimização de fluxos corporativos.", en: "Optimized corporate workflows.", es: "Optimización de flujos corporativos." }
             },
             {
-              titulo: { pt: "Digitalização de processos em papel", en: "Digitizing paper-based processes", es: "Digitalización de procesos en papel" },
-              contexto: { pt: "Vários processos ainda dependiam de documentos impressos e assinaturas físicas.", en: "Many processes still relied on printed documents and wet signatures.", es: "Varios procesos aún dependían de documentos impresos y firmas físicas." },
-              implementei: { pt: "Soluções digitais para substituir formulários e etapas em papel.", en: "Digital solutions to replace paper forms and steps.", es: "Soluciones digitales para reemplazar formularios y etapas en papel." },
-              resultado: { pt: "Redução de processos manuais e de impressões, contribuindo para a transformação digital da empresa.", en: "Fewer manual processes and printouts, supporting the company's digital transformation.", es: "Reducción de procesos manuales e impresiones, contribuyendo a la transformación digital de la empresa." }
+              titulo: { pt: "Transformação digital", en: "Digital transformation", es: "Transformación digital" },
+              contexto: "",
+              implementei: { pt: "Desenvolvimento de soluções para a transformação digital da empresa.", en: "Built solutions for the company's digital transformation.", es: "Desarrollo de soluciones para la transformación digital de la empresa." },
+              resultado: { pt: "Redução de processos manuais e impressos.", en: "Fewer manual and paper-based processes.", es: "Reducción de procesos manuales e impresos." }
             },
             {
               titulo: { pt: "Dashboards de KPIs", en: "KPI dashboards", es: "Dashboards de KPIs" },
-              contexto: { pt: "Faltava uma visão consolidada dos indicadores.", en: "There was no consolidated view of the indicators.", es: "Faltaba una visión consolidada de los indicadores." },
-              implementei: { pt: "Desenvolvimento e manutenção de dashboards para monitorar KPIs.", en: "Built and maintained dashboards to monitor KPIs.", es: "Desarrollo y mantenimiento de dashboards para monitorear KPIs." },
-              resultado: { pt: "Indicadores acompanhados de forma contínua pelas áreas.", en: "Indicators continuously tracked by each team.", es: "Indicadores seguidos de forma continua por las áreas." }
+              contexto: "",
+              implementei: { pt: "Desenvolvimento e manutenção de dashboards.", en: "Built and maintained dashboards.", es: "Desarrollo y mantenimiento de dashboards." },
+              resultado: { pt: "Monitoramento de KPIs.", en: "KPI monitoring.", es: "Monitoreo de KPIs." }
             },
             {
               titulo: { pt: "Interfaces web", en: "Web interfaces", es: "Interfaces web" },
-              contexto: { pt: "Usuários precisavam de telas mais simples para realizar suas tarefas.", en: "Users needed simpler screens to get their work done.", es: "Los usuarios necesitaban pantallas más simples para realizar sus tareas." },
-              implementei: { pt: "Interfaces em JavaScript e HTML.", en: "Interfaces in JavaScript and HTML.", es: "Interfaces en JavaScript y HTML." },
-              resultado: { pt: "Sistemas internos mais fáceis de usar.", en: "Easier-to-use internal systems.", es: "Sistemas internos más fáciles de usar." }
+              contexto: "",
+              implementei: { pt: "Desenvolvimento de interfaces em JavaScript e HTML.", en: "Built interfaces in JavaScript and HTML.", es: "Desarrollo de interfaces en JavaScript y HTML." },
+              resultado: ""
             }
           ]
         },
@@ -470,22 +483,22 @@ const DATA = {
           cargo: { pt: "Técnica de Sistemas Nível III", en: "Systems Technician III", es: "Técnica de Sistemas Nivel III" }, inicio: "2024-07", fim: "2025-07",
           itens: [
             {
-              titulo: { pt: "Levantamento de requisitos e mapeamento de processos", en: "Requirements gathering and process mapping", es: "Levantamiento de requisitos y mapeo de procesos" },
-              contexto: { pt: "Processos do Financeiro, Jurídico, Contratos e Governança Corporativa pouco documentados.", en: "Poorly documented processes in Finance, Legal, Contracts and Corporate Governance.", es: "Procesos de Finanzas, Jurídico, Contratos y Gobierno Corporativo poco documentados." },
-              implementei: { pt: ["Reuniões de levantamento de requisitos com os stakeholders", "Mapeamento dos processos em BPMN"], en: ["Requirements sessions with stakeholders", "Process mapping in BPMN"], es: ["Reuniones de levantamiento de requisitos con los stakeholders", "Mapeo de procesos en BPMN"] },
-              resultado: { pt: "Processos documentados e prontos para serem automatizados.", en: "Processes documented and ready to be automated.", es: "Procesos documentados y listos para automatizarse." }
-            },
-            {
-              titulo: { pt: "Fluxos de aprovação e assinatura de documentos", en: "Document approval and signature workflows", es: "Flujos de aprobación y firma de documentos" },
-              contexto: { pt: "As aprovações precisavam respeitar as alçadas de governança e eram difíceis de rastrear.", en: "Approvals had to follow governance authority levels and were hard to track.", es: "Las aprobaciones debían respetar los niveles de autorización de gobierno y eran difíciles de rastrear." },
-              implementei: { pt: "Aplicações e processos para gerenciar aprovações e assinaturas de documentos.", en: "Applications and processes to manage document approvals and signatures.", es: "Aplicaciones y procesos para gestionar aprobaciones y firmas de documentos." },
-              resultado: { pt: "Conformidade com as alçadas de governança e histórico de cada aprovação.", en: "Compliance with governance authority levels and a history of every approval.", es: "Cumplimiento de los niveles de autorización y registro de cada aprobación." }
+              titulo: { pt: "Análise de negócios e mapeamento de processos", en: "Business analysis and process mapping", es: "Análisis de negocio y mapeo de procesos" },
+              contexto: { pt: "Atuação junto a stakeholders de áreas-chave como Financeiro, Jurídico, Contratos e Governança Corporativa.", en: "Worked with stakeholders from key areas such as Finance, Legal, Contracts and Corporate Governance.", es: "Trabajo junto a stakeholders de áreas clave como Finanzas, Jurídico, Contratos y Gobierno Corporativo." },
+              implementei: { pt: ["Análise de negócios", "Levantamento de requisitos", "Mapeamento de processos em BPMN"], en: ["Business analysis", "Requirements gathering", "Process mapping in BPMN"], es: ["Análisis de negocio", "Levantamiento de requisitos", "Mapeo de procesos en BPMN"] },
+              resultado: ""
             },
             {
               titulo: { pt: "Dashboards e relatórios no Weknow", en: "Dashboards and reports in Weknow", es: "Dashboards e informes en Weknow" },
-              contexto: { pt: "As áreas precisavam de relatórios para avaliar suas estratégias.", en: "Teams needed reports to evaluate their strategies.", es: "Las áreas necesitaban informes para evaluar sus estrategias." },
-              implementei: { pt: "Consultas SQL e dashboards na plataforma Weknow.", en: "SQL queries and dashboards on the Weknow platform.", es: "Consultas SQL y dashboards en la plataforma Weknow." },
-              resultado: { pt: "Insights entregues às áreas para otimizar estratégias.", en: "Insights delivered to teams to optimize their strategies.", es: "Insights entregados a las áreas para optimizar estrategias." }
+              contexto: "",
+              implementei: { pt: "Desenvolvimento de dashboards e relatórios a partir de consultas SQL na plataforma Weknow.", en: "Built dashboards and reports from SQL queries on the Weknow platform.", es: "Desarrollo de dashboards e informes a partir de consultas SQL en la plataforma Weknow." },
+              resultado: { pt: "Entrega de insights para otimização de estratégias.", en: "Insights delivered to optimize strategies.", es: "Entrega de insights para optimizar estrategias." }
+            },
+            {
+              titulo: { pt: "Fluxos de aprovação e assinatura de documentos", en: "Document approval and signature workflows", es: "Flujos de aprobación y firma de documentos" },
+              contexto: "",
+              implementei: { pt: "Criação de aplicações e processos para gerenciar fluxos de aprovação e assinaturas de documentos.", en: "Created applications and processes to manage document approval and signature workflows.", es: "Creación de aplicaciones y procesos para gestionar flujos de aprobación y firmas de documentos." },
+              resultado: { pt: "Conformidade com as alçadas de governança da empresa.", en: "Compliance with the company's governance authority levels.", es: "Cumplimiento de los niveles de autorización de gobierno de la empresa." }
             }
           ]
         },
@@ -494,9 +507,9 @@ const DATA = {
           itens: [
             {
               titulo: { pt: "Automação de processos no Sydle", en: "Process automation in Sydle", es: "Automatización de procesos en Sydle" },
-              contexto: { pt: "Rotinas operacionais feitas manualmente.", en: "Operational routines done by hand.", es: "Rutinas operativas hechas manualmente." },
+              contexto: "",
               implementei: { pt: "Modelagem e automação de processos de negócio (BPM) na plataforma low-code Sydle.", en: "Business process modeling and automation (BPM) on the Sydle low-code platform.", es: "Modelado y automatización de procesos de negocio (BPM) en la plataforma low-code Sydle." },
-              resultado: { pt: "Rotinas otimizadas e efetivação como Técnica de Sistemas.", en: "Optimized routines and a full-time hire as Systems Technician.", es: "Rutinas optimizadas y contratación efectiva como Técnica de Sistemas." }
+              resultado: { pt: "Otimização de rotinas operacionais.", en: "Optimized operational routines.", es: "Optimización de rutinas operativas." }
             }
           ]
         }
@@ -725,9 +738,9 @@ function item(it) {
   const u = T(), impl = L(it.implementei);
   const imp = Array.isArray(impl) ? `<ul>${impl.map(i => `<li>${E(i)}</li>`).join("")}</ul>` : `<p>${E(impl)}</p>`;
   return `<details class="dd"><summary><svg class="ic chev"><use href="#i-chev"/></svg>${E(it.titulo)}</summary><div class="in ctx">
-    <div class="row"><b>${u.contexto}</b><div><p>${E(it.contexto)}</p></div></div>
-    <div class="row"><b>${u.implementei}</b><div>${imp}</div></div>
-    <div class="row"><b>${u.resultado}</b><div><p>${E(it.resultado)}</p></div></div>
+    ${L(it.contexto) ? `<div class="row"><b>${u.contexto}</b><div><p>${E(it.contexto)}</p></div></div>` : ""}
+    ${(Array.isArray(impl) ? impl.length : impl) ? `<div class="row"><b>${u.implementei}</b><div>${imp}</div></div>` : ""}
+    ${L(it.resultado) ? `<div class="row"><b>${u.resultado}</b><div><p>${E(it.resultado)}</p></div></div>` : ""}
   </div></details>`;
 }
 function role(f) {
